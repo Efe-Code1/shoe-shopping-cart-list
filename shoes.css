@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container button{
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    background-color: dodgerblue;
+    color: white;
+    font-weight: bold;
+    padding: 5px 50px;
+    border: 1px solid dodgerblue;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+.container{
+    width: 1200px;
+    margin: auto;
+    max-width: 90%;
+    transition: transform 1s;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h4{
+    display: grid;
+    align-items: center;
+}
+
+header .iconCart{
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+header .totalQuantity{
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    bottom: 0;
+    font-size: large;
+    background-color: red;
+    width: 30px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(20px);
+}
+
+.listProduct{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:30px;
+}
+
+.listProduct .item{
+    padding: 10px;
+    text-align: center;
+    margin: 20px;
+    background-color: white;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow:  3px 3px 4px lightgray,
+                -3px -3px 4px lightgray;
+}
+
+.listProduct .item:hover{
+    background-color: greenyellow;
+}
+
+.listProduct .item img{
+    width: 50%;
+}
+
+.listProduct .item h2{
+    font-size: x-large;
+}
+
+.listProduct .item .price{
+    font-size: larger;
+}
+
+.cart{
+    color: #fff;
+    position: fixed;
+    top:0;
+    right: -200%;
+    width: 390px;
+    height: 100vh;
+    display: grid;
+    background-color: darkslategray;
+    grid-template-columns: 50px 1fr 50px;
+    gap: 20px;
+    transition: right 1s;
+    overflow: scroll;
+}
+
+.cart::-webkit-scrollbar{
+    display: none;
+}
+
+.cart h2{
+    padding: 20px;
+    margin: 0;
+}
+
+.cart .listCart .item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+    margin-top: 150px;
+    margin-left: -50px;
+}
+
+.cart .listCart .item .content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: -80px;
+    gap: 10px;
+}
+
+.cart .listCart img{
+    width: 100%;
+    height: 70px;
+    /* object-fit: cover;
+    border-radius: 10px; */
+}
+
+.cart .listCart .item .name{
+    font-weight: bold;
+}
+
+.cart .listCart .item .quantity{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.cart .listCart .item .quantity button:hover{
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+}
+
+.cart .listCart .item span{
+    display: block;
+    width: 20px;
+    text-align: center;
+}
+
+
+span .buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+}
+
+span .buttons div{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+span .buttons a{
+    color: #fff;
+    text-decoration: none;
+}
+
+span .buttons .close {
+    background-color: red;
+}
+
+span .buttons .checkout {
+    background-color: dodgerblue;
+}
+
+
+
+@media screen and (max-width:800px) {
+    .listProduct .item img{
+        width: 75%;
+    }
+
+    .listProduct .item h2{
+        font-size: larger;
+    }
+
+    .listProduct .item .price{
+        font-size: large;
+    }
+
+    .listProduct{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .container button{
+        bottom: 0;
+        margin-top: 10px;
+        border-radius: 10px;
+        font-size: small;
+        background-color: dodgerblue;
+        color: white;
+        font-weight: bold;
+        font-size: medium;
+        padding: 10px 80px;
+        border: 1px solid dodgerblue;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+    }
+
+    .listProduct .item{
+        text-align: center;
+        margin: 20px;
+        background-color: white;
+        margin-right: 10px;
+        border-radius: 10px;
+        box-shadow:  3px 3px 4px lightgray,
+                    -3px -3px 4px lightgray;
+    }
+
+    .cart .buttons{
+        /* top: 0;
+        right: 0;
+        display: block; */
+        /* display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+        margin-top: 200%;
+        width: 100%; */
+    }
+
+}
+
