@@ -1,27 +1,26 @@
 
-let iconCart = document.querySelector(".iconCart");
-let cart = document.querySelector(".cart");
-let container = document.querySelector(".container");
-let close = document.querySelector(".close");
+let iconCart = document.querySelector('.iconCart');
+let cart = document.querySelector('.cart');
+let container = document.querySelector('.container');
+let close = document.querySelector('.close');
 
-iconCart.addEventListener("click", ()=>{
-    if(cart.style.right == "-100%"){
-        cart.style.right = "0";
-        container.style.transform = "translateX(-400px)";
+iconCart.addEventListener('click', ()=>{
+    if(cart.style.right == '-100%'){
+        cart.style.right = '0';
+        container.style.transform = 'translateX(-400px)';
     }else{
-        cart.style.right = "-100%";
-        container.style.transform = "translateX(0)";
+        cart.style.right = '-100%';
+        container.style.transform = 'translateX(0)';
     }
 })
-
-close.addEventListener("click", ()=>{
-    cart.style.right = "-100%";
-    container.style.transform = "translateX(0)";
+close.addEventListener('click', ()=>{
+    cart.style.right = '-100%';
+    container.style.transform = 'translateX(0)';
 })
 
 let products = null;
 // get data from file json
-fetch("product.json")
+fetch('product.json')
 .then(response => response.json())
 .then(data => {
     products = data;
@@ -31,19 +30,19 @@ fetch("product.json")
 // show datas in list HTML
 function addDataToHTML(){
     // remove datas defaults in HTML
-    let listProductHTML = document.querySelector(".listProduct");
-    listProductHTML.innerHTML = "";
+    let listProductHTML = document.querySelector('.listProduct');
+    listProductHTML.innerHTML = '';
 
     // add new datas
     if(products != null){
         products.forEach(product => {
-            let newProduct = document.createElement("div");
-            newProduct.classList.add("item");
+            let newProduct = document.createElement('div');
+            newProduct.classList.add('item');
             newProduct.innerHTML = 
-            `<img src="${product.image}">
+            `<img src='${product.image}'>
             <h2>${product.name}</h2>
-            <div class="price">${product.price}</div>
-            <button onclick="addCart(${product.id})">Add to Cart</button>`;
+            <div class='price'>${product.price}</div>
+            <button onclick='addCart(${product.id})'>Add to Cart</button>`;
             listProductHTML.appendChild(newProduct);
         });
     }
@@ -53,10 +52,10 @@ let listCart = [];
 // and to get cookie data cart
 function checkCart(){
     var cookieValue = document.cookie
-    .split("; ")
-    .find(row => row.startsWith("listCart="));
+    .split('; ')
+    .find(row => row.startsWith('listCart='));
     if(cookieValue){
-        listCart = JSON.parse(cookieValue.split("=")[1]);
+        listCart = JSON.parse(cookieValue.split('=')[1]);
     }
 }
 checkCart();
@@ -71,47 +70,47 @@ function addCart($idProduct){
         // add data product in cart
         listCart[$idProduct] = dataProduct;
         listCart[$idProduct].quantity = 1;
-    }else {
+    }else{
         // if this product is already in the cart
         // quantity is increased
         listCart[$idProduct].quantity++;
     }
     // save datas cart in cookie
     // save this datas cart when computer/mobile is turned off
-    let timeSave = "expires=Thu, 31 Dec 2025 23:59:59 UTC";
-    document.cookie = "listCart="+JSON.stringify(listCart)+"; "+timeSave+"; path=/;";
+    let timeSave = 'expires=Thu, 31 Dec 2025 23:59:59 UTC';
+    document.cookie = 'listCart='+JSON.stringify(listCart)+'; '+timeSave+'; path=/;';
     addCartToHTML();
 }
 
-addDataToHTML();
+addDataToHTML(); 
 function addCartToHTML(){
     // clear data default;
-    let listCartHTML = document.querySelector(".listCart");
-    listCartHTML.innerHTML = " ";
+    let listCartHTML = document.querySelector('.listCart');
+    listCartHTML.innerHTML = ' ';
 
-    let totalHTML = document.querySelector(".totalQuantity");
+    let totalHTML = document.querySelector('.totalQuantity');
     let totalQuantity = 0;
 
     if(listCart){
         listCart.forEach(product => {
             if(product){
-                let newCart = document.createElement("div");
-                newCart.classList.add("item");
+                let newCart = document.createElement('div');
+                newCart.classList.add('item');
                 newCart.innerHTML =
-                `<img src="${product.image}">
-                <div class="content">
-                    <div class="name">
+                `<img src='${product.image}'>
+                <div class='content'>
+                    <div class='name'>
                         ${product.name}
                     </div>
-                    <div class="price">
+                    <div class='price'>
                         ${product.price}
                     </div>
-                    <div class="quantity">
-                        <button onclick="changeQuantity(${product.id}, "-")"> - </button>
-                        <span class="value"> 
+                    <div class='quantity'>
+                        <button onclick='changeQuantity(${product.id}, '-')'> - </button>
+                        <span class='value'> 
                             ${product.quantity}
                         </span>
-                        <button onclick="changeQuantity(${product.id}, "+")"> + </button>
+                        <button onclick='changeQuantity(${product.id}, '+')'> + </button>
                     </div>
                 </div>`;
                 listCartHTML.appendChild(newCart);
@@ -123,11 +122,11 @@ function addCartToHTML(){
 }
 
 function changeQuantity($idProduct, $type){
-    switch($type) {
-        case "+":
+    switch ($type) {
+        case '+':
             listCart[$idProduct].quantity++;
             break;
-        case "-":
+        case '-':
             listCart[$idProduct].quantity--;
             if(listCart[$idProduct].quantity <= 0){
                 delete listCart[$idProduct];
@@ -138,8 +137,8 @@ function changeQuantity($idProduct, $type){
             break;
     }
     // save new data in cookie
-    let timeSave = "expires=Thu, 31 Dec 2025 23:59:59 UTC";
-    document.cookie = "listCart="+JSON.stringify(listCart)+"; "+timeSave+"; path=/;";
+    let timeSave = 'expires=Thu, 31 Dec 2025 23:59:59 UTC';
+    document.cookie = 'listCart='+JSON.stringify(listCart)+'; '+timeSave+'; path=/;';
 
     // reload list cart in HTML
     addCartToHTML();
