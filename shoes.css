@@ -232,6 +232,7 @@ header .totalQuantity{
 
 .checkoutLayout .list img{
     height: 70px;
+    filter: drop-shadow(0 20px 20px #0009);
 }
 
 .checkoutLayout .right .form{
@@ -252,8 +253,8 @@ header .totalQuantity{
     width: 100%;
     padding: 10px 20px;
     box-sizing: border-box;
-    border-radius: 20px;
-    margin-top: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
     border: none;
     background-color:white;
 }
@@ -314,32 +315,37 @@ header .totalQuantity{
         gap: 5px;
     }
 
-    .container button{
-        bottom: 0;
-        margin-top: 10px;
-        border-radius: 10px;
-        font-size: small;
-        background-color: dodgerblue;
-        color: white;
-        font-weight: bold;
-        font-size: medium;
-        padding: 10px 80px;
-        border: 1px solid dodgerblue;
-        font-family: 'Montserrat', sans-serif;
-        cursor: pointer;
+    /* Page Checkout Styling */
+
+    .returnCart .item{
+        width: 290px;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 30px;
+        padding: 10px 30px;
+        background-color: white;
+        box-shadow: 0 10px 20px #555;
+        border-radius: 20px;
     }
 
-    .listProduct .item{
-        text-align: center;
-        margin: 20px;
-        background-color: #eeeee6;
-        margin-right: 10px;
-        border-radius: 10px;
-    }
 
     .checkoutLayout{
         display: flex;
+        padding: 5px;
         flex-direction: column;
     }
+
+    .checkoutLayout .right{
+        width: 300px;
+        background-color: lightblue;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .buttonCheckout{
+        width: 100%;
+        text-align: center;
+    }
+
 }
 
