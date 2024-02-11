@@ -274,7 +274,14 @@ header .totalQuantity{
     width: 100%;
 }
 
+.buttonCheckout a{
+    text-decoration: none;
+    color: white;
+}
 
+.buttonCheckout a:hover{
+    color: black;
+}
 
 @media screen and (max-width:800px) {
 
