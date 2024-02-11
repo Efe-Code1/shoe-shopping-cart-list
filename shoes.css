@@ -318,7 +318,9 @@ header .totalQuantity{
     /* Page Checkout Styling */
 
     .returnCart .item{
-        width: 290px;
+        width: 280px;
+        place-items: center;
+        place-content: center;
         display: flex;
         justify-content: space-evenly;
         gap: 30px;
@@ -336,6 +338,8 @@ header .totalQuantity{
     }
 
     .checkoutLayout .right{
+        place-items: center;
+        place-content: center;
         width: 300px;
         background-color: lightblue;
         border-radius: 20px;
