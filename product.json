@@ -2,55 +2,55 @@
     {
         "id": 1,
         "name": "Blue Sneakers",
-        "price": "8,000 NGN",
+        "price": 8000,
         "image": "images/shoe (1).png"
     },
     {
         "id": 2,
         "name": "Purple Sneakers",
-        "price": "9,000 NGN",
+        "price": 9000,
         "image": "images/shoe (2).png"
     },
     {
         "id": 3,
         "name": "Dark Blue Boots",
-        "price": "12,000 NGN",
+        "price": 12000,
         "image": "images/shoe (3).png"
     },
     {
         "id": 4,
         "name": "Brown Boots",
-        "price": "10,000 NGN",
+        "price": 10000,
         "image": "images/shoe (4).png"
     },
     {
         "id": 5,
         "name": "Red Lowtops",
-        "price": "7,000 NGN",
+        "price": 7000,
         "image": "images/shoe (5).png"
     },
     {
         "id": 6,
         "name": "Orange Sneakers",
-        "price": "9,000 NGN",
+        "price": 9000,
         "image": "images/shoe (6).png"
     },
     {
         "id": 7,
         "name": "Multi-Colored Sneakers",
-        "price": "10,000 NGN",
+        "price": 10000,
         "image": "images/shoe (7).png"
     },
     {
         "id": 8,
         "name": "White stripes Sneakers",
-        "price": "15,000 NGN",
+        "price": 15000,
         "image": "images/shoe (8).png"
     },
     {
         "id": 9,
         "name": "Green Sneakers",
-        "price": "8,000 NGN",
+        "price": 8000,
         "image": "images/shoe (9) .png"
     }
 

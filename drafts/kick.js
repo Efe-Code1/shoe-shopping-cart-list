@@ -1,3 +1,11 @@
+// let iconCart = document.querySelector('.icon-cart');
+// let body = document.querySelector('body');
+
+// iconCart.addEventListener('click', () => {
+//     body.classList.toggle('showCart')
+// });
+
+
 let iconCart = document.querySelector('.iconCart');
 let cart = document.querySelector('.cart');
 let container = document.querySelector('.container');
@@ -10,7 +18,7 @@ let iconCartSpan = document.querySelector('.totalQuantity');
 let listProducts = [];
 let carts = [];
 
-iconCart.addEventListener('click', () => {
+iconCart.addEventListener('click', ()=>{
     if(cart.style.right == '-100%'){
         cart.style.right = '0';
         container.style.transform = 'translateX(-400px)';
@@ -35,13 +43,12 @@ const addDataToHTML = () => {
             newProduct.innerHTML = 
             `<img src='${product.image}'>
             <h2>${product.name}</h2>
-            <div class='price'>${product.price} NGN</div>
+            <div class='price'>${product.price}</div>
             <button class='addCart'>Add to Cart</button>`;
             listProductHTML.appendChild(newProduct);
         })
-    } 
+    }
 }
-
 listProductHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
     if(positionClick.classList.contains('addCart')){
@@ -57,20 +64,16 @@ const addToCart = (product_id) => {
             product_id: product_id,
             quantity: 1
         }]
-    }else if(positionThisProductInCart < 0){
+    }else if (positionThisProductInCart < 0){
         carts.push({
             product_id: product_id,
             quantity: 1
         });
-    }else{
-        carts[positionThisProductInCart].quantity ++;
+    }else {
+        carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity + 1;
     }
-    addCartToHTML();
-    addCartToMemory();
-}
-
-const addCartToMemory = () => {
-    localStorage.setItem('cart', JSON.stringify(carts));
+    // console.log(carts);
+    addToCartToHTML();
 }
 
 const addCartToHTML = () => {
@@ -81,24 +84,23 @@ const addCartToHTML = () => {
             totalQuantity = totalQuantity + cart.quantity;
             let newCart = document.createElement('div');
             newCart.classList.add('item');
-            newCart.dataset.id = cart.product_id;
             let positionProduct = listProducts.findIndex((value) => value.id == cart.product_id);
             let info = listProducts[positionProduct];
             newCart.innerHTML = 
-            `<div class='item'>
-                <img src='${info.image}' alt=''>
-                <div class='content'>
-                    <div class='name'>
-                        ${info.name}
+            `<div class="item">
+                <img src="${info.image}" alt="">
+                <div class="content">
+                    <div class="name">
+                    ${info.name}
                     </div>
-                    <div class='price'>
-                        ${info.price * cart.quantity}
+                    <div class="price">
+                    ${info.price * cart.quantity}
                     </div>
                 </div>
-                <div class='quantity'>
-                    <button class='minus'>-</button>
+                <div class="quantity">
+                    <button>-</button>
                     <span>${cart.quantity}</span>
-                    <button class='plus'>+</button>
+                    <button>+</button>
                 </div>
             </div>`;
             listCartHTML.appendChild(newCart);
@@ -107,38 +109,6 @@ const addCartToHTML = () => {
     iconCartSpan.innerText = totalQuantity;
 }
 
-listCartHTML.addEventListener('click', (event) => {
-    let positionClick = event.target;
-    if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
-        let product_id = positionClick.parentElement.parentElement.parentElement.dataset.id;
-        let type = 'minus';
-        if(positionClick.classList.contains('plus')){
-            type = 'plus';
-        }
-        changeQuantity(product_id, type);
-    }
-})
-const changeQuantity = (product_id, type) => {
-    let positionItemInCart = carts.findIndex((value) => value.product_id == product_id);
-    if(positionItemInCart >= 0){
-        switch (type) {
-            case 'plus':
-                carts[positionItemInCart].quantity ++;
-                break;
-
-            default:
-                let valueChange = carts[positionItemInCart].quantity - 1;
-                if(valueChange > 0){;
-                    carts[positionItemInCart].quantity = valueChange;
-                }else{
-                    carts.splice(positionItemInCart, 1);
-                }
-                break;
-        }
-    }
-    addCartToMemory();
-    addCartToHTML();
-}
 const initApp = () => {
     // get data from json file
     fetch('product.json')
@@ -146,12 +116,6 @@ const initApp = () => {
     .then(data => {
         listProducts = data;
         addDataToHTML();
-
-        // get cart from memory
-        if (localStorage.getItem('cart')){
-            carts = JSON.parse(localStorage.getItem('cart'));
-            addCartToHTML();
-        }
     })
 }
 initApp();
