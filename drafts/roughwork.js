@@ -229,3 +229,13 @@ const initApp = () => {
     })
 }
 initApp();
+
+
+// function checkCart(){
+//     var cookieValue = document.cookie
+//     .split('; ')
+//     .find(row => row.startsWith('listCart='));
+//     if(cookieValue){
+//         listCart = JSON.parse(cookieValue.split('='))[1];
+//     }
+// }

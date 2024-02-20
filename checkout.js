@@ -4,14 +4,7 @@ let listCart = [];
 const addCartToMemory = () => {
     localStorage.setItem('cart', JSON.stringify(carts));
 }
-// function checkCart(){
-//     var cookieValue = document.cookie
-//     .split('; ')
-//     .find(row => row.startsWith('listCart='));
-//     if(cookieValue){
-//         listCart = JSON.parse(cookieValue.split('='))[1];
-//     }
-// }
+
 addCartToMemory();
 
 addCartToHTML();
@@ -48,5 +41,5 @@ function addCartToHTML(){
         })
     }
     totalQuantityHTML.innerText = totalQuantity;
-    totalPriceHTML.innerText = '$' + totalPrice;
+    totalPriceHTML.innerText =  totalPrice + 'NGN';
 }
