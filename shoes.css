@@ -325,7 +325,7 @@ header .totalQuantity{
     /* Page Checkout Styling */
 
     .returnCart .item{
-        margin-left: 0px;
+        margin-left: -10px;
         width: 280px;
         display: flex;
         justify-content: space-evenly;
@@ -344,7 +344,7 @@ header .totalQuantity{
     }
 
     .checkoutLayout .right{
-        margin-left: 0px;
+        margin-left: -10px;
         width: 300px;
         background-color: lightblue;
         border-radius: 20px;
