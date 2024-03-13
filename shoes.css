@@ -7,11 +7,12 @@ body{
 
 .container button{
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 10px;
     background-color: dodgerblue;
     color: white;
     font-weight: bold;
+    font-stretch: ultra-condensed;
     padding: 10px 60px;
     border: 1px solid dodgerblue;
     font-family: 'Montserrat', sans-serif;
@@ -82,6 +83,11 @@ header .totalQuantity{
     box-shadow:  3px 3px 4px lightgray,
                 -3px -3px 4px lightgray;
 
+}
+
+.listProduct .item:hover{
+    box-shadow: 1px 1px 4px black,
+                        -1px -1px 4px black;
 }
 
 .listProduct .item img{
@@ -293,6 +299,11 @@ header .totalQuantity{
         font-size: medium;
     }
 
+    .container button{
+        font-size: 15px;
+        padding: 5px 60px;
+    }
+
     header .iconCart{
         font-size: 35px;
     }
@@ -317,10 +328,16 @@ header .totalQuantity{
     }
 
     .listProduct{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:10px;
     }
+    
+    .listProduct .item{
+        margin: 10px;
+        margin-inline-start: -10px;
+    }
+
 
     /* Page Checkout Styling */
 
